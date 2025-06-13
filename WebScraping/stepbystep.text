@@ -1,0 +1,30 @@
+- requirements.txt dosyası içerisindeki "flask requests beautifulsoup4" kütüphanaleri önemlidir.
+
+- Terminal üzerinden kodu çalıştırmak için 
+    ->python api_v2.py
+    ->aşağıdakiler gibi yazılar çıkması gerekmekte.  
+        * Serving Flask app 'api'
+        * Debug mode: on
+        WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+        * Running on http://127.0.0.1:5000
+        Press CTRL+C to quit
+        * Restarting with stat
+        * Debugger is active!
+        * Debugger PIN: 183-843-606
+
+
+-> çalıştırdıktan sonra browser üzerinden;
+    -> http://localhost:5000/otoendeks/arama?marka=audi&model=a6&yil=2015
+    -> GET metodunu çalıştıracak. O listeden dönenlerden bir tanesini seçerek istenilen bir sonuç dönecektir.
+    -> marka - model - yıl parametrelerini alacağız. 
+        -> Sebebi ise bazı araç bilgilerinde ne yazık ki araç tipi seçimi yok bu yüzden botun patlamasını istemeyiz. 
+        -> Direkt olarak onların döndürdüğü verilerin linklerinden ilerleyerek sonuca ulaşıyoruz. 
+        -> O linklerde de zaten araç motoru, tipi, km gibi değerleri hakkında bilgiler bulunmakta.
+    
+    -> Gelen araç bilgilerinden ROW'lar içinde seçilen araca göre yeni bir istek atmalıyız.
+    -> Örnek istek aşağıdaki gibidir. Denediğinde JSON formatında verileri göreceksin. Karşılaştırmak için aynı adımları yapabilirsin.
+    -> Tramer bilgisi, boyalı veya değişen, km bilgilerini almaya gerek duymadım. Sistem içerisinde de endeksi ona göre hesaplamadığını düşünüyorum.
+    -> Kendi sistemlerinden hazırlanmış bir taslağa göre bir hesaplama mevcut. 
+    -> API veriyorlarmış fakat geri dönüş sağlayamadım. İllegal bir yoldan hizmetlerini kullanıyoruz. 
+        -> http://localhost:5000/otoendeks/sonuc?url=https://otoendeks.com/arabam-ne-kadar/audi-a6-2.0-tfsi-multitronic-180hp-2015-6005078
+
